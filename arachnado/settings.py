@@ -60,6 +60,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 ITEM_PIPELINES = {
     'arachnado.pipelines.mongoexport.MongoExportPipeline': 10,
+  'arachnado.pipelines.botos3.S3Pipeline': 1
 }
 
 EXTENSIONS = {
@@ -72,23 +73,4 @@ HTTPCACHE_ENABLED = False
 # This storage is read-only. Responses are stored by PageExport middleware
 HTTPCACHE_STORAGE = 'arachnado.pagecache.mongo.MongoCacheStorage'
 
-FEED_STORAGES = {}
-FEED_STORAGES_BASE = {
-    '': 'scrapy.extensions.feedexport.FileFeedStorage',
-    'file': 'scrapy.extensions.feedexport.FileFeedStorage',
-    'stdout': 'scrapy.extensions.feedexport.StdoutFeedStorage',
-    's3': 'scrapy.extensions.feedexport.S3FeedStorage',
-    'ftp': 'scrapy.extensions.feedexport.FTPFeedStorage',
-}
-FEED_EXPORTERS = {}
-FEED_EXPORTERS_BASE = {
-    'json': 'scrapy.exporters.JsonItemExporter',
-    'jsonlines': 'scrapy.exporters.JsonLinesItemExporter',
-    'jl': 'scrapy.exporters.JsonLinesItemExporter',
-    'csv': 'scrapy.exporters.CsvItemExporter',
-    'xml': 'scrapy.exporters.XmlItemExporter',
-    'marshal': 'scrapy.exporters.MarshalItemExporter',
-    'pickle': 'scrapy.exporters.PickleItemExporter',
-}
 
-FILES_STORE_S3_ACL = 'private'
