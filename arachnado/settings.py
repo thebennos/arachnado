@@ -60,7 +60,6 @@ DOWNLOADER_MIDDLEWARES = {
 
 ITEM_PIPELINES = {
     'arachnado.pipelines.mongoexport.MongoExportPipeline': 10,
-  'arachnado.pipelines.botos3.S3Pipeline': 1,
 }
 
 EXTENSIONS = {
